@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_challenge/screens/todo_screen.dart';
+import 'package:todo_challenge/to_do/presentation/todo_screen.dart';
 
 void main() {
   runApp(const TodoChallengeApp());

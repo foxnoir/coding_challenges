@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_challenge/models/todo.dart';
+import 'package:todo_challenge/to_do/data/models/todo.dart';
 
 /// Single-screen to-do UI — implement the TODOs for the challenge.
 class TodoScreen extends StatefulWidget {
@@ -43,9 +43,7 @@ class _TodoScreenState extends State<TodoScreen> {
     final theme = Theme.of(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('To-Do'),
-      ),
+      appBar: AppBar(title: const Text('To-Do')),
       body: Column(
         children: [
           Padding(
