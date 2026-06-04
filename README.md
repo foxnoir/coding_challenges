@@ -19,7 +19,9 @@
   </p>
   
   <p align="left">
-    <a href="#repository-structure"><strong>Explore the structure »</strong></a>
+    <a href="#challenge-index"><strong>Challenge index »</strong></a>
+    ·
+    <a href="#repository-structure"><strong>Repository structure »</strong></a>
     <br/>
   </p>
 </div>
@@ -71,7 +73,9 @@
 ## About This Repo
 
 This repository collects **small, self-contained Flutter coding challenges**, grouped by difficulty.
-The README is the single source of truth: as you add or finish a challenge, extend the matching section in the [Challenge Index](#challenge-index).
+
+**This file** is the **catalog only**: difficulty levels, short summaries, and links into each challenge.  
+The **full task** (criteria, rubric, run commands) lives in that challenge’s **[`README.md`](easy/todo_challenge/README.md)**. After your attempt, fill in **[`DECISIONS.md`](easy/todo_challenge/DECISIONS.md)** in the same folder.
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
@@ -88,11 +92,11 @@ The README is the single source of truth: as you add or finish a challenge, exte
 
 Typical flow (e.g. with Cursor or a mentor):
 
-1. **Briefing** — read the task, acceptance criteria, and time box.
-2. **Implementation** — code inside the challenge folder (`easy/easy_1/`, etc.).
-3. **Documentation** — short `DECISIONS.md` in that folder (architecture choices).
+1. **Briefing** — open the challenge **[`README.md`](easy/todo_challenge/README.md)** (full task, time box, rubric).
+2. **Implementation** — code in that Flutter folder (e.g. [`easy/todo_challenge/`](easy/todo_challenge/)).
+3. **Documentation** — fill in [`DECISIONS.md`](easy/todo_challenge/DECISIONS.md) in the same folder.
 4. **Review** — feedback on structure, Flutter style, and trade-offs.
-5. **README update** — add a row to the challenge table below (status, link, notes).
+5. **Index update** — adjust the summary row in [Challenge Index](#challenge-index) (status, time spent).
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
@@ -100,7 +104,7 @@ Typical flow (e.g. with Cursor or a mentor):
 
 ## Difficulty Levels
 
-Challenges are organized in **top-level folders**. Naming inside each level: `easy_1`, `easy_2`, `medium_1`, …
+Challenges sit under **difficulty folders** (`easy/`, `medium/`, …). Each challenge uses a **descriptive folder name** (e.g. `todo_challenge/`), not numbered IDs like `easy_1`.
 
 | **Folder**    | **Focus**                                                                 |
 | ------------- | ------------------------------------------------------------------------- |
@@ -147,15 +151,13 @@ Challenges are organized in **top-level folders**. Naming inside each level: `ea
 
 ## Challenge Index
 
-> **Placeholder tables** — fill in a row when a challenge is assigned or completed.
-> Link the **Folder** column to the project path (e.g. `easy/easy_1/`).
+> **One row per challenge.** Title links to the **full task** in that folder’s `README.md`. Keep summaries short here.
 
 ### Easy Challenges
 
-| **ID**   | **Title**              | **Folder**        | **Time** | **Status**      | **Notes** |
-| -------- | ---------------------- | ----------------- | -------- | --------------- | --------- |
-| easy_1   | _Quick Notes_ (draft)  | `easy/easy_1/`    | 30 min   | 🚧 In progress  | —         |
-| easy_2   | _TBD_                  | `easy/easy_2/`    | —        | ⬜ Not started  | —         |
+| **Challenge** | **Summary** | **Time** | **Status** |
+| ------------- | ----------- | -------- | ---------- |
+| **[To-Do Challenge](easy/todo_challenge/README.md)** | Single-screen in-memory to-do list; implement `_addTodo` / `_deleteTodo` | 30 min | 📋 Assigned |
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
@@ -192,15 +194,15 @@ Challenges are organized in **top-level folders**. Naming inside each level: `ea
 coding_challenges/
 ├── images/                 # README assets (e.g. logo)
 ├── easy/
-│   ├── easy_1/             # Flutter project
-│   └── easy_2/             # (add when needed)
-├── easy_plus/
-│   └── easy_plus_1/
+│   └── todo_challenge/     # Flutter app — README.md = full task
+│       ├── README.md         # complete challenge brief (start here)
+│       ├── DECISIONS.md      # your notes after the attempt
+│       ├── lib/
+│       └── test/
+├── easy_plus/                # next challenges (same layout)
 ├── medium/
-│   └── medium_1/
 ├── hard/
-│   └── hard_1/
-├── README.md               # This file — challenge catalog + docs
+├── README.md                 # this file — index + short summaries only
 └── .gitignore
 
 ```
@@ -233,7 +235,7 @@ Pick a folder from the [Challenge Index](#challenge-index), then:
 
 ```
 
-cd easy/easy_1
+cd easy/todo_challenge
 flutter pub get
 flutter run
 
@@ -244,8 +246,9 @@ To **start a new** challenge project:
 ```
 
 cd easy
-flutter create easy_2 --project-name easy_2
-cd easy_2
+flutter create habit_tracker --project-name habit_tracker
+# add README.md (full task) + DECISIONS.md, then a row in the index above
+cd habit_tracker
 flutter run
 
 ```
@@ -254,16 +257,31 @@ flutter run
 
 ### Conventions per Challenge
 
-Every challenge folder should eventually contain:
+Each folder under `easy/`, `medium/`, … is a **standalone Flutter app** with its own docs:
 
-| **File / folder** | **Purpose** |
-| ----------------- | ----------- |
-| `lib/`            | App source code |
-| `test/`           | Widget / unit tests (when required by the brief) |
-| `DECISIONS.md`    | Short log of architecture choices (state location, navigation, layers, etc.) |
-| `README.md`       | Optional: challenge-specific brief or screenshots |
+| **File** | **Purpose** |
+| -------- | ----------- |
+| **`README.md`** | **Complete challenge brief** (task, time box, criteria, rubric, commands). This is what you open when you start. |
+| **`DECISIONS.md`** | Your notes *after* the timed attempt (one file per challenge folder). |
+| `lib/`, `test/` | Implementation |
 
-After finishing a challenge, update the matching row in [Challenge Index](#challenge-index) (status, time spent, one-line note).
+**Root `README.md`** = index with **short summaries + links** only — no duplicate full briefs.
+
+**Naming:** prefer descriptive folders (`todo_challenge/`) over `easy_1`. The Dart package name matches the folder (`name: todo_challenge` in `pubspec.yaml`).
+
+**`README.md` vs `CHALLENGE.md`:** we use **`README.md`** in the challenge folder so GitHub and IDEs show the task immediately when you open the folder. A separate `CHALLENGE.md` is optional if you ever want a tiny entry README + long task file — not needed for this repo.
+
+**Flutter boilerplate (keep):**
+
+| **File** | **Keep?** | **Why** |
+| -------- | --------- | ------- |
+| `.gitignore` (per project) | **Yes** | Ignores `build/`, `.dart_tool/`, platform artifacts — without it, git noise explodes. |
+| `.metadata` | **Yes** | Flutter tooling uses it to detect project type/root; safe to commit. |
+| `pubspec.lock` | Optional | This practice repo may commit it per app for reproducible `pub get`. |
+
+When you **add a challenge**: `flutter create`, copy `README.md` / `DECISIONS.md` from [`easy/todo_challenge/`](easy/todo_challenge/), write the full task in the new `README.md`, add one row to [Easy Challenges](#easy-challenges).
+
+After finishing, update that index row (status, time spent).
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
@@ -295,6 +313,8 @@ After finishing a challenge, update the matching row in [Challenge Index](#chall
 | **Date**   | **Change** |
 | ---------- | ---------- |
 | 2026-06-04 | Initial README: repo purpose, folder layout, placeholder challenge index. |
+| 2026-06-04 | **To-Do Challenge** (`easy/todo_challenge/`): full brief in challenge README; root README = index only. |
+| 2026-06-04 | Renamed from `easy_1` / Quick Notes → descriptive folder + to-do branding. |
 | —          | _Add entries when challenges are completed or levels are added._ |
 
 <p align="right"><a href="#readme-top">back to top</a></p>
