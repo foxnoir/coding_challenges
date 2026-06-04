@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:todo_challenge/l10n/app_localizations.dart';
-import 'package:todo_challenge/to_do/presentation/controllers/to_do_controller.dart';
-import 'package:todo_challenge/to_do/presentation/widgets/empty_todo_message.dart';
-import 'package:todo_challenge/to_do/presentation/widgets/todo_input_row.dart';
-import 'package:todo_challenge/to_do/presentation/widgets/todo_list.dart';
+import 'package:todo_challenge/todo_solution/presentation/controllers/todo_controller.dart';
+import 'package:todo_challenge/todo_solution/presentation/widgets/empty_todo_message.dart';
+import 'package:todo_challenge/todo_solution/presentation/widgets/todo_input_row.dart';
+import 'package:todo_challenge/todo_solution/presentation/widgets/todo_list.dart';
 
-/// Single-screen to-do UI — layout only; logic lives in [TodoController].
-class TodoScreen extends StatefulWidget {
-  const TodoScreen({super.key});
+/// Reference solution screen — UI only; logic in [TodoController].
+class TodoSolutionScreen extends StatefulWidget {
+  const TodoSolutionScreen({super.key});
 
   @override
-  State<TodoScreen> createState() => _TodoScreenState();
+  State<TodoSolutionScreen> createState() => _TodoSolutionScreenState();
 }
 
-class _TodoScreenState extends State<TodoScreen> {
+class _TodoSolutionScreenState extends State<TodoSolutionScreen> {
   late final TodoController _controller;
   late final TextEditingController _textController;
 
@@ -31,7 +31,7 @@ class _TodoScreenState extends State<TodoScreen> {
   }
 
   void _onAddPressed() {
-    final added = _controller.addTodo(newTodo: _textController.text);
+    final added = _controller.addTodo(text: _textController.text);
     if (added) {
       _textController.clear();
     }

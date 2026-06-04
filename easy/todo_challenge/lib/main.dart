@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todo_challenge/l10n/app_localizations.dart';
-import 'package:todo_challenge/to_do/presentation/todo_screen.dart';
+import 'package:todo_challenge/todo/presentation/todo_screen.dart';
+// Reference solution: import
+// package:todo_challenge/todo_solution/presentation/todo_solution_screen.dart';
 
 void main() {
   runApp(const TodoChallengeApp());
@@ -17,6 +19,8 @@ class TodoChallengeApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
         useMaterial3: true,
       ),
+      // Challenge: const TodoScreen()
+      // Solution:  const TodoSolutionScreen()
       home: const TodoScreen(),
     );
   }

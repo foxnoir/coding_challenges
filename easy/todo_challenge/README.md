@@ -21,7 +21,7 @@ Build a **single-screen** in-memory to-do list for a short standup or personal t
 ## Deliverable
 
 - Working Flutter app in this folder
-- All widget tests in `test/widget_test.dart` passing
+- Solution widget tests in `test/todo_solution/presentation/todo_solution_screen_test.dart` passing (or your own tests for `lib/todo/`)
 - [`DECISIONS.md`](DECISIONS.md) filled in after your attempt
 - One-line update in the [Easy challenges table](../../README.md#easy-challenges) (status, time spent)
 
@@ -47,16 +47,24 @@ Build a **single-screen** in-memory to-do list for a short standup or personal t
 - Extra tests beyond the provided widget tests
 - Custom design system / heavy theming
 
-## Starter code
+## Project layout
+
+| **Folder** | **Purpose** |
+| ---------- | ----------- |
+| `lib/todo/` | **Your challenge** — implement `TodoController` in `todo_controller.dart` |
+| `lib/todo_solution/` | **Reference solution** — compare when stuck (do not copy blindly in interviews) |
+| `lib/l10n/` | Shared strings & keys |
+
+## Starter code (work in `lib/todo/`)
 
 | **Path** | **Status** |
 | -------- | ---------- |
-| `lib/to_do/data/models/todo.dart` | Given |
-| `lib/to_do/presentation/controllers/to_do_controller.dart` | Implement `TODO(challenge)` in `addTodo(text:)` / `deleteTodo(id:)` |
-| `lib/to_do/presentation/todo_screen.dart` | Given (UI only) |
-| `lib/main.dart` | Given |
+| `lib/todo/data/models/todo.dart` | Given |
+| `lib/todo/presentation/controllers/todo_controller.dart` | Implement `addTodo(text:)` / `deleteTodo(id:)` |
+| `lib/todo/presentation/todo_screen.dart` | Given (UI only) |
+| `lib/main.dart` | Uses `TodoScreen` — switch to `TodoSolutionScreen` to run the solution |
 
-Widget keys in the starter match the tests — do not rename without updating tests.
+Widget / controller tests target **`todo_solution/`**. Keys live in `lib/l10n/app_localizations.dart`.
 
 ## Run
 

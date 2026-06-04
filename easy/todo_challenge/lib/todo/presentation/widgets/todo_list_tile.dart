@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_challenge/l10n/app_localizations.dart';
-import 'package:todo_challenge/to_do/data/models/todo.dart';
-import 'package:todo_challenge/to_do/presentation/controllers/to_do_controller.dart';
+import 'package:todo_challenge/todo/data/models/todo.dart';
+import 'package:todo_challenge/todo/presentation/controllers/todo_controller.dart';
 
 class TodoListTile extends StatelessWidget {
   const TodoListTile({

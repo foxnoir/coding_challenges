@@ -1,19 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:todo_challenge/l10n/app_localizations.dart';
-import 'package:todo_challenge/main.dart';
+import 'package:todo_challenge/todo_solution/presentation/todo_solution_screen.dart';
 
+/// Widget tests for the **reference solution** ([TodoSolutionScreen]).
+///
+/// Covers challenge acceptance criteria: empty state, add (incl. trim),
+/// newest-first list, reject whitespace-only input, delete.
 void main() {
+  Future<void> pumpSolutionApp(WidgetTester tester) async {
+    await tester.pumpWidget(
+      const MaterialApp(home: TodoSolutionScreen()),
+    );
+  }
+
   testWidgets('shows title and empty state', (WidgetTester tester) async {
-    await tester.pumpWidget(const TodoChallengeApp());
+    await pumpSolutionApp(tester);
 
     expect(find.text(l10n.screenTitle), findsOneWidget);
     expect(find.byKey(AppKeys.emptyState), findsOneWidget);
     expect(find.byKey(AppKeys.todoList), findsNothing);
   });
 
-  testWidgets('adds a to-do and shows it newest first', (WidgetTester tester) async {
-    await tester.pumpWidget(const TodoChallengeApp());
+  testWidgets('adds a to-do and shows it newest first', (
+    WidgetTester tester,
+  ) async {
+    await pumpSolutionApp(tester);
 
     await tester.enterText(find.byKey(AppKeys.todoInput), 'Ship feature X');
     await tester.tap(find.byKey(AppKeys.addTodoButton));
@@ -27,7 +39,7 @@ void main() {
   testWidgets('does not add empty or whitespace-only to-dos', (
     WidgetTester tester,
   ) async {
-    await tester.pumpWidget(const TodoChallengeApp());
+    await pumpSolutionApp(tester);
 
     await tester.tap(find.byKey(AppKeys.addTodoButton));
     await tester.pumpAndSettle();
@@ -42,7 +54,7 @@ void main() {
   });
 
   testWidgets('deletes a to-do', (WidgetTester tester) async {
-    await tester.pumpWidget(const TodoChallengeApp());
+    await pumpSolutionApp(tester);
 
     await tester.enterText(find.byKey(AppKeys.todoInput), 'Delete me');
     await tester.tap(find.byKey(AppKeys.addTodoButton));

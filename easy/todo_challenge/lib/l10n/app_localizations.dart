@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart' show Key;
 
-/// Simulated i18n — swap [l10n] for another locale class (e.g. [AppL10nDe]).
+/// Simulated i18n — point [l10n] at another `AppL10n` implementation later.
 abstract class AppL10n {
   const AppL10n();
 

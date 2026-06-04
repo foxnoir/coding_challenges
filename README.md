@@ -195,10 +195,11 @@ coding_challenges/
 ├── images/                 # README assets (e.g. logo)
 ├── easy/
 │   └── todo_challenge/     # Flutter app — README.md = full task
-│       ├── README.md         # complete challenge brief (start here)
-│       ├── DECISIONS.md      # your notes after the attempt
-│       ├── lib/
-│       └── test/
+│       ├── README.md
+│       ├── DECISIONS.md
+│       └── lib/
+│           ├── todo/           # challenge (you implement here)
+│           └── todo_solution/  # reference solution
 ├── easy_plus/                # next challenges (same layout)
 ├── medium/
 ├── hard/

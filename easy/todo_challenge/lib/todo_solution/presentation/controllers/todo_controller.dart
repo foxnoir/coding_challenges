@@ -1,12 +1,9 @@
-import 'package:todo_challenge/to_do/data/models/todo.dart';
+import 'package:todo_challenge/todo_solution/data/models/todo.dart';
 
 /// Called when the in-memory list changes so the UI can rebuild.
 typedef TodoListChanged = void Function();
 
-/// Presentation logic for the to-do list (no Riverpod/Bloc — plain Dart).
-///
-/// Owns in-memory state and rules; the screen widget only builds UI and
-/// registers [onListChanged] to rebuild after mutations.
+/// Reference solution — presentation logic for the to-do list.
 class TodoController {
   TodoController({this.onListChanged});
 
@@ -14,14 +11,13 @@ class TodoController {
 
   final List<Todo> _todos = [];
 
-  /// Read-only view for the UI (newest first).
   List<Todo> get todos => List.unmodifiable(_todos);
 
   bool get isEmpty => _todos.isEmpty;
 
-  bool addTodo({required String newTodo}) {
-    final text = newTodo.trim();
-    if (text.isEmpty) {
+  bool addTodo({required String text}) {
+    final trimmed = text.trim();
+    if (trimmed.isEmpty) {
       return false;
     }
 
@@ -29,7 +25,7 @@ class TodoController {
       0,
       Todo(
         id: DateTime.now().microsecondsSinceEpoch.toString(),
-        text: text,
+        text: trimmed,
         createdAt: DateTime.now(),
       ),
     );
@@ -45,7 +41,6 @@ class TodoController {
     }
   }
 
-  /// Formats [dateTime] as local HH:mm.
   static String formatTime({required DateTime dateTime}) {
     final hour = dateTime.hour.toString().padLeft(2, '0');
     final minute = dateTime.minute.toString().padLeft(2, '0');
