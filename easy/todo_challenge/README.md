@@ -51,8 +51,9 @@ Build a **single-screen** in-memory to-do list for a short standup or personal t
 
 | **Path** | **Status** |
 | -------- | ---------- |
-| `lib/models/todo.dart` | Given |
-| `lib/screens/todo_screen.dart` | Implement `TODO(challenge)` in `_addTodo` and `_deleteTodo` |
+| `lib/to_do/data/models/todo.dart` | Given |
+| `lib/to_do/presentation/controllers/to_do_controller.dart` | Implement `TODO(challenge)` in `addTodo(text:)` / `deleteTodo(id:)` |
+| `lib/to_do/presentation/todo_screen.dart` | Given (UI only) |
 | `lib/main.dart` | Given |
 
 Widget keys in the starter match the tests — do not rename without updating tests.

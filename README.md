@@ -157,7 +157,7 @@ Challenges sit under **difficulty folders** (`easy/`, `medium/`, …). Each chal
 
 | **Challenge** | **Summary** | **Time** | **Status** |
 | ------------- | ----------- | -------- | ---------- |
-| **[To-Do Challenge](easy/todo_challenge/README.md)** | Single-screen in-memory to-do list; implement `_addTodo` / `_deleteTodo` | 30 min | 📋 Assigned |
+| **[To-Do Challenge](easy/todo_challenge/README.md)** | In-memory to-do list; implement `TodoController.addTodo` / `deleteTodo` | 30 min | 📋 Assigned |
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
