@@ -84,7 +84,7 @@ The **full task** lives in each challenge bundle’s **`README.md`** (e.g. [`eas
 1. **Build interview muscle** — solve problems under a time limit.
 2. **Practice architecture decisions** — document *why*, not only *what*.
 3. **Increase complexity gradually** — Easy → Easy Plus → Medium → Hard.
-4. **Keep solutions reviewable** — one Flutter project per challenge folder.
+4. **Keep solutions reviewable** — one challenge bundle with starter + reference solution apps.
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
@@ -158,7 +158,7 @@ Challenges sit under **difficulty folders** (`easy/`, `medium/`, …). Each chal
 | **Challenge** | **Summary** | **Time** | **Status** |
 | ------------- | ----------- | -------- | ---------- |
 | **[Tip Calculator](easy/tip_calculator_challenge/README.md)** | Tip calculator from scratch in `tip_calculator_starter/` | 30–40 min | 📋 Assigned |
-| **[To-Do Challenge](easy/todo_challenge/README.md)** | To-do list from scratch in `todo_starter/` | 30 min | 📋 Assigned |
+| **[To-Do Challenge](easy/todo_challenge/README.md)** | To-do list from scratch in `todo_starter/` | 30 min | ✅ Done |
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
@@ -247,16 +247,19 @@ flutter run
 
 ```
 
-To **start a new** challenge project:
+To **start a new** challenge bundle:
 
-```
-
+```bash
 cd easy
-flutter create habit_tracker --project-name habit_tracker
-# add bundle README + starter/solution apps (see todo_challenge/), then index row
-cd habit_tracker
-flutter run
+mkdir habit_tracker_challenge
+cd habit_tracker_challenge
 
+flutter create habit_tracker_starter --project-name habit_tracker_starter --platforms=ios
+flutter create habit_tracker --project-name habit_tracker --platforms=ios
+
+# Add README.md (task) + questions.md (template) at bundle level — see todo_challenge/
+# Strip each starter to lib/main.dart + lib/habit_tracker_app.dart only
+# Add a row to the Challenge Index above
 ```
 
 <p align="right"><a href="#readme-top">back to top</a></p>
@@ -271,6 +274,8 @@ Each challenge bundle under `easy/`, `medium/`, … follows the same layout:
 | **`questions.md`** | Your notes **after** the timed attempt (structure, trade-offs). |
 | **`<feature>_starter/`** | Standalone Flutter app — minimal starter (`main.dart` + one file). |
 | **`<feature>/`** | Standalone Flutter app — reference solution + tests. |
+
+**Platform:** new challenge apps are **iOS only** (`flutter create … --platforms=ios`). Keeps boilerplate small; Android/web/desktop only when a brief explicitly requires them.
 
 **Root `README.md`** = repo index only.
 
@@ -315,6 +320,7 @@ After finishing, update that index row (status, time spent).
 | 2026-06-04 | Challenge bundle: separate Flutter apps `todo_starter/` + `todo/` under `todo_challenge/`. |
 | 2026-06-04 | **Tip Calculator Challenge** (`easy/tip_calculator_challenge/`): starter + solution, iOS only. |
 | 2026-06-04 | Challenge docs: one bundle `README.md` + `questions.md` per challenge (no per-app READMEs). |
+| 2026-06-04 | Root README: To-Do marked done; iOS-only convention documented. |
 | —          | _Add entries when challenges are completed or levels are added._ |
 
 <p align="right"><a href="#readme-top">back to top</a></p>
