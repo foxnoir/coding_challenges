@@ -157,7 +157,7 @@ Challenges sit under **difficulty folders** (`easy/`, `medium/`, …). Each chal
 
 | **Challenge** | **Summary** | **Time** | **Status** |
 | ------------- | ----------- | -------- | ---------- |
-| **[Tip Calculator](easy/tip_calculator_challenge/README.md)** | Tip calculator from scratch in `tip_calculator_starter/` | 30–40 min | 📋 Assigned |
+| **[Tip Calculator Challenge](easy/tip_calculator_challenge/README.md)** | Tip calculator from scratch in `tip_calculator_starter/` | 30–40 min | 📋 Assigned |
 | **[To-Do Challenge](easy/todo_challenge/README.md)** | To-do list from scratch in `todo_starter/` | 30 min | ✅ Done |
 
 <p align="right"><a href="#readme-top">back to top</a></p>
