@@ -18,8 +18,12 @@
 
 | Folder | Role |
 | ------ | ---- |
-| [`tip_calculator_starter/`](tip_calculator_starter/) | Your timed attempt |
-| [`tip_calculator/`](tip_calculator/) | Compare after the attempt |
+| [`tip_calculator_starter/`](tip_calculator_starter/) | Your timed attempt — **only** `lib/main.dart` + `lib/tip_calculator_app.dart` |
+| [`tip_calculator/`](tip_calculator/) | Reference solution — open **after** your attempt only |
+
+> **During the time box:** work in `tip_calculator_starter/` only.  
+> Structuring folders (`data/`, `presentation/`, …) is **part of the task** — the starter does not include them.  
+> `tip_calculator/` is the completed reference (like `todo/` in the To-Do challenge).
 
 ## Scenario
 
